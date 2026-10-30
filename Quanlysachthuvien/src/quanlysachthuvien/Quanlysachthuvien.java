@@ -14,22 +14,17 @@ public class Quanlysachthuvien {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+   Scanner sc = new Scanner(System.in);
 
-        // Cách 1: Khởi tạo đối tượng sách bằng Constructor có tham số
-        Sach sach1 = new Sach("S001", "Lập trình Hướng đối tượng", "Nguyễn Văn A", 2024, 15, 85000);
+        Sach sach = new Sach();
 
-        // Cách 2: Khởi tạo đối tượng bằng Constructor mặc định và nhập từ bàn phím
-        System.out.println("=== NHAP THONG TIN SACH MOI ===");
-        Sach sach2 = new Sach();
-        sach2.nhapThongTin(sc);
+        // Thuc hien Bai 1: Nhap thong tin cuon sach
+        System.out.println("=== NHAP THONG TIN SACH NHAP KHO ===");
+        sach.nhapThongTin(sc);
 
-        // Hiển thị danh sách sách thư viện
-        System.out.println("\n=== DANH SACH TRONG THU VIEN ===");
-        sach1.hienThiThongTin();
-        sach2.hienThiThongTin();
-
-        sc.close();
+        // Hien thi ket qua Bai 1, Bai 2, Bai 3, Bai 4
+        System.out.println("\n=== THONG TIN SACH VA GIA TRI NHAP KHO ===");
+        sach.hienThiKetQuaNhapKho();
     }
     
 }
