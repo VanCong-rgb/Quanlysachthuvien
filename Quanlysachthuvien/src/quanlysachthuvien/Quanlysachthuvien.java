@@ -18,13 +18,15 @@ public class Quanlysachthuvien {
 
         Sach sach = new Sach();
 
-        // Thuc hien Bai 1: Nhap thong tin cuon sach
-        System.out.println("=== NHAP THONG TIN SACH NHAP KHO ===");
+        // 1. Nhap thong tin cuon sach (Bai 1 - Tuan 3)
+        System.out.println("=== NHAP THONG TIN CUON SACH ===");
         sach.nhapThongTin(sc);
 
-        // Hien thi ket qua Bai 1, Bai 2, Bai 3, Bai 4
-        System.out.println("\n=== THONG TIN SACH VA GIA TRI NHAP KHO ===");
-        sach.hienThiKetQuaNhapKho();
+        // 2. Chon loai sach bang switch-case (Bai 4 - Tuan 4)
+        sach.chonLoaiSach(sc);
+
+        // 3. Hien thi toan bo ket qua tinh toan Tuan 3 va phan loai Tuan 4
+        sach.hienThiDayDu();
     }
     
 }
