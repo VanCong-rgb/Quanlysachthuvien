@@ -13,117 +13,36 @@ public class TEST {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        ArrayList<Sach> danhSachSach = new ArrayList<>();
 
-        int chon;
+        // Tao doi tuong Sach bang constructor
+        Sach sach = new Sach(
+            "S01",
+            "Lap trinh Java",
+            "Nguyen Van A",
+            2024,
+            10
+        );
 
-        do {
-            System.out.println("\n===== QUAN LY SACH THU VIEN =====");
-            System.out.println("1. Them sach");
-            System.out.println("2. Hien thi danh sach sach");
-            System.out.println("3. Tim sach theo ma");
-            System.out.println("4. Xoa sach");
-            System.out.println("0. Thoat");
-            System.out.print("Nhap lua chon: ");
+        // Hien thi thong tin ban dau
+        System.out.println("===== THONG TIN SACH =====");
+        sach.hienThiThongTin();
 
-            chon = Integer.parseInt(sc.nextLine());
+        // Su dung Setter
+        System.out.println("\n===== CAP NHAT THONG TIN =====");
 
-            switch (chon) {
+        sach.setTieuDe("Lap trinh huong doi tuong");
+        sach.setTacGia("Nguyen Van B");
+        sach.setNamXuatBan(2025);
+        sach.setSoLuong(20);
 
-                case 1:
-                    // Nhap thong tin sach
-                    System.out.print("Nhap ma sach: ");
-                    String ma = sc.nextLine();
-
-                    System.out.print("Nhap tieu de: ");
-                    String ten = sc.nextLine();
-
-                    System.out.print("Nhap tac gia: ");
-                    String tacGia = sc.nextLine();
-
-                    System.out.print("Nhap nam xuat ban: ");
-                    int nam = Integer.parseInt(sc.nextLine());
-
-                    System.out.print("Nhap so luong: ");
-                    int soLuong = Integer.parseInt(sc.nextLine());
-
-                    // Tao doi tuong Sach
-                    Sach sach = new Sach(ma, ten, tacGia, nam, soLuong);
-
-                    // Them vao ArrayList
-                    danhSachSach.add(sach);
-
-                    System.out.println("Them sach thanh cong!");
-                    break;
-
-                case 2:
-                    // Hien thi danh sach
-                    if (danhSachSach.isEmpty()) {
-                        System.out.println("Danh sach sach trong!");
-                    } else {
-                        System.out.println("\n===== DANH SACH SACH =====");
-
-                        for (Sach s : danhSachSach) {
-                            s.hienThiThongTin();
-                            System.out.println("----------------------");
-                        }
-                    }
-                    break;
-
-                case 3:
-                    // Tim sach theo ma
-                    System.out.print("Nhap ma sach can tim: ");
-                    String maTim = sc.nextLine();
-
-                    boolean timThay = false;
-
-                    for (Sach s : danhSachSach) {
-                        if (s.getMaSach().equalsIgnoreCase(maTim)) {
-                            s.hienThiThongTin();
-                            timThay = true;
-                            break;
-                        }
-                    }
-
-                    if (!timThay) {
-                        System.out.println("Khong tim thay sach!");
-                    }
-                    break;
-
-                case 4:
-                    // Xoa sach theo ma
-                    System.out.print("Nhap ma sach can xoa: ");
-                    String maXoa = sc.nextLine();
-
-                    boolean daXoa = false;
-
-                    for (int i = 0; i < danhSachSach.size(); i++) {
-                        if (danhSachSach.get(i).getMaSach()
-                                .equalsIgnoreCase(maXoa)) {
-
-                            danhSachSach.remove(i);
-                            daXoa = true;
-                            System.out.println("Xoa sach thanh cong!");
-                            break;
-                        }
-                    }
-
-                    if (!daXoa) {
-                        System.out.println("Khong tim thay sach!");
-                    }
-                    break;
-
-                case 0:
-                    System.out.println("Ket thuc chuong trinh!");
-                    break;
-
-                default:
-                    System.out.println("Lua chon khong hop le!");
-            }
-
-        } while (chon != 0);
+        // Su dung Getter
+        System.out.println("\n===== THONG TIN SAU KHI CAP NHAT =====");
+        System.out.println("Ma sach: " + sach.getMaSach());
+        System.out.println("Tieu de: " + sach.getTieuDe());
+        System.out.println("Tac gia: " + sach.getTacGia());
+        System.out.println("Nam xuat ban: " + sach.getNamXuatBan());
+        System.out.println("So luong: " + sach.getSoLuong());
 
         sc.close();
     }
 }
-
