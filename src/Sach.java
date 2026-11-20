@@ -7,96 +7,77 @@
  *
  * @author LVC
  */
+import java.time.LocalDate;
 
-import java.time.Year;
+public abstract class Sach {
+    protected String maSach;
+    protected LocalDate ngayNhap;
+    protected double donGia;
+    protected int soLuong;
+    protected String nhaXuatBan;
 
-public class Sach {
-
-    // Yeu cau 1: Khai bao cac thuoc tinh private
-    private String maSach;
-    private String tieuDe;
-    private String tacGia;
-    private int namXuatBan;
-    private int soLuong;
-
-    // Yeu cau 4: Constructor co tham so day du
-    public Sach(String maSach, String tieuDe, String tacGia,
-                int namXuatBan, int soLuong) {
+    // Constructor
+    public Sach(String maSach, LocalDate ngayNhap,
+                double donGia, int soLuong, String nhaXuatBan) {
         this.maSach = maSach;
-        this.tieuDe = tieuDe;
-        this.tacGia = tacGia;
-        setNamXuatBan(namXuatBan);
-        setSoLuong(soLuong);
+        this.ngayNhap = ngayNhap;
+        this.donGia = donGia;
+        this.soLuong = soLuong;
+        this.nhaXuatBan = nhaXuatBan;
     }
 
-    // Yeu cau 2: Getter va Setter cho maSach
+    // Getter
     public String getMaSach() {
         return maSach;
     }
 
-    public void setMaSach(String maSach) {
-        this.maSach = maSach;
+    public LocalDate getNgayNhap() {
+        return ngayNhap;
     }
 
-    // Getter va Setter cho tieuDe
-    public String getTieuDe() {
-        return tieuDe;
+    public double getDonGia() {
+        return donGia;
     }
 
-    public void setTieuDe(String tieuDe) {
-        this.tieuDe = tieuDe;
-    }
-
-    // Getter va Setter cho tacGia
-    public String getTacGia() {
-        return tacGia;
-    }
-
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
-    }
-
-    // Getter va Setter cho namXuatBan
-    public int getNamXuatBan() {
-        return namXuatBan;
-    }
-
-    // Yeu cau 3: Kiem tra nam xuat ban
-    public void setNamXuatBan(int namXuatBan) {
-        int currentYear = Year.now().getValue();
-
-        if (namXuatBan > 0 && namXuatBan <= currentYear) {
-            this.namXuatBan = namXuatBan;
-        } else {
-            throw new IllegalArgumentException(
-                "Nam xuat ban khong hop le!"
-            );
-        }
-    }
-
-    // Getter va Setter cho soLuong
     public int getSoLuong() {
         return soLuong;
     }
 
-    // Yeu cau 3: Kiem tra so luong khong am
-    public void setSoLuong(int soLuong) {
-        if (soLuong >= 0) {
-            this.soLuong = soLuong;
-        } else {
-            throw new IllegalArgumentException(
-                "So luong khong duoc am!"
-            );
-        }
+    public String getNhaXuatBan() {
+        return nhaXuatBan;
     }
 
-    // Phuong thuc hien thi thong tin sach
-    public void hienThiThongTin() {
+    // Setter
+    public void setMaSach(String maSach) {
+        this.maSach = maSach;
+    }
+
+    public void setNgayNhap(LocalDate ngayNhap) {
+        this.ngayNhap = ngayNhap;
+    }
+
+    public void setDonGia(double donGia) {
+        this.donGia = donGia;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
+    }
+
+    public void setNhaXuatBan(String nhaXuatBan) {
+        this.nhaXuatBan = nhaXuatBan;
+    }
+
+    // Phuong thuc truu tuong tinh thanh tien
+    public abstract double thanhTien();
+
+    // Hien thi thong tin chung
+    public void hienThi() {
         System.out.println("Ma sach: " + maSach);
-        System.out.println("Tieu de: " + tieuDe);
-        System.out.println("Tac gia: " + tacGia);
-        System.out.println("Nam xuat ban: " + namXuatBan);
+        System.out.println("Ngay nhap: " + ngayNhap);
+        System.out.println("Don gia: " + donGia);
         System.out.println("So luong: " + soLuong);
+        System.out.println("Nha xuat ban: " + nhaXuatBan);
     }
 }
 
